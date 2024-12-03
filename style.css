@@ -1,0 +1,248 @@
+/* 全局选择文本样式 */
+::selection {
+    background-color: #000;
+    color: #fff;
+}
+
+::-moz-selection {
+    background-color: #000;
+    color: #fff;
+}
+
+/* 字体引入 */
+@font-face {
+    font-family: 'Genos-Light';
+    src: url('fonts/Genos-VariableFont_wght.ttf');
+}
+
+@font-face {
+    font-family: 'Debatiment_Normal';
+    src: url('fonts/Debatiment_Normal.ttf');
+}
+
+@font-face {
+    font-family: 'Genos-Italic';
+    src: url('fonts/Genos-Italic-VariableFont_wght.ttf');
+}
+
+/* 全局样式 */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Debatiment_Normal';
+    box-sizing: border-box;
+    background-color: #E7E1DA;
+    color: #fff;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+/* 背景样式 */
+.background {
+    position: relative;
+    background-color: #E7E1DA;
+    z-index: 0;
+    width: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.background-logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    height: 90%;
+    background-image: url('images/SumerBloom_logo.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    pointer-events: none;
+    user-select: none;
+    z-index: 1;
+}
+
+/* 导航栏样式 */
+.navbar,
+.content {
+    position: relative;
+    z-index: 2;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 50pt;
+    height: 70px;
+    background-color: #E2DBD1;
+}
+
+.nav-links {
+    display: flex;
+    align-items: flex-end;
+    gap: clamp(30px, 5vw, 50px);
+}
+
+.nav-button {
+    font-family: 'Debatiment_Normal';
+    font-size: clamp(6pt, 1.2vw, 10pt);
+    color: #fff;
+    text-decoration: none;
+    letter-spacing: 2pt;
+    white-space: nowrap;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.nav-button:hover {
+    color: #D1DCE3;
+    transform: scale(1.05);
+}
+
+.nav-button:active {
+    color: #A38A67;
+    transform: scale(0.95);
+}
+
+.nav-button.active {
+    color: #A38A67; 
+    cursor: default; 
+    pointer-events: none; 
+    font-weight: bold; 
+}
+
+/* LOGO 样式 */
+.sumerbloom {
+    font-family: 'Genos-Light';
+    font-size: clamp(10.8pt, 2.16vw, 18pt);
+    font-weight: bold;
+    color: #fff;
+    margin-right: 10pt;
+    letter-spacing: 3pt;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.sumerbloom:hover {
+    color: #D1DCE3;
+}
+
+.sumerbloom:active {
+    color: #A38A67;
+}
+
+/* 内容样式 */
+.content {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 70px);
+    transform: translateY(-10px);
+}
+
+.headline {
+    font-family: 'Debatiment_Normal';
+    font-size: clamp(30px, 5vw, 50px);
+    font-weight: bold;
+    line-height: 0.5;
+    margin: 10;
+    color: #9C8F7D;
+    text-transform: uppercase;
+    letter-spacing: 3pt;
+    transition: font-size 0.3s ease;
+}
+
+/* 按钮样式 */
+.shop-now {
+    font-family: 'Genos-Light';
+    margin-top: 20pt;
+    padding: 5px 20px;
+    font-size: clamp(9pt, 1.8vw, 15pt);
+    letter-spacing: 2pt;
+    text-transform: capitalize;
+    color: #fff;
+    background: transparent;
+    border: 2px solid #fff;
+    text-decoration: none;
+    display: inline-block;
+    transition: font-size 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+}
+
+.shop-now:hover {
+    color: #D1DCE3;
+    border-color: #D1DCE3;
+    transform: scale(1.05);
+}
+
+.shop-now:active {
+    color: #A38A67;
+    border-color: #A38A67;
+    transform: scale(0.95);
+}
+
+/* 卡片容器 */
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 240px;
+    height: 360px;
+    z-index: 2;
+    outline: none; /* 去除 focus 样式 */
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+
+/* 卡片样式 */
+.card {
+    position: absolute;
+    width: 240px;
+    height: 360px;
+    border-radius: 8px;
+    background-color: var(--card-color, #E4FDE1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: translateY(calc(var(--i) * -10px)) rotate(0deg);
+    transform-origin: center;
+    transition: transform 0.5s ease, z-index 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+    text-decoration: none; /* 去除链接下划线 */
+}
+
+/* 默认堆叠样式：第一个个体 */
+.card:nth-child(1) { --card-color: #E2DBD1; z-index: 5; }
+.card:nth-child(2) { --card-color: #E2DBD1; z-index: 4; }
+.card:nth-child(3) { --card-color: #E2DBD1; z-index: 3; }
+.card:nth-child(4) { --card-color: #E2DBD1; z-index: 2; }
+.card:nth-child(5) { --card-color: #E2DBD1; z-index: 1; }
+
+/* 鼠标悬停时微微扇形展开：第二个个体 */
+.container:not(:focus):hover .card:nth-child(1) {
+    transform: translateY(-10px) rotate(-3deg);
+}
+.container:not(:focus):hover .card:nth-child(2) {
+    transform: translateY(-20px) rotate(-1.5deg);
+}
+.container:not(:focus):hover .card:nth-child(3) {
+    transform: translateY(-30px) rotate(0deg);
+}
+.container:not(:focus):hover .card:nth-child(4) {
+    transform: translateY(-40px) rotate(1.5deg);
+}
+.container:not(:focus):hover .card:nth-child(5) {
+    transform: translateY(-50px) rotate(3deg);
+}
+
+/* 点击后完全展开：第三个个体 */
+.container:focus .card {
+    transform: rotate(calc((var(--i) - 3) * 5deg)) translateX(calc((var(--i) - 3) * (260px + 20px))) translateY(0);
+    /* 每张卡片间距 = 卡片宽度 240px + 20pt 空档 */
+    z-index: calc(10 - var(--i)); /* 保持层次顺序 */
+}
