@@ -1,4 +1,3 @@
-/* 全局选择文本样式 */
 ::selection {
     background-color: #000;
     color: #fff;
@@ -9,7 +8,6 @@
     color: #fff;
 }
 
-/* 字体引入 */
 @font-face {
     font-family: 'Genos-Light';
     src: url('fonts/Genos-VariableFont_wght.ttf');
@@ -25,7 +23,6 @@
     src: url('fonts/Genos-Italic-VariableFont_wght.ttf');
 }
 
-/* 全局样式 */
 body, html {
     margin: 0;
     padding: 0;
@@ -38,7 +35,6 @@ body, html {
     overflow: hidden;
 }
 
-/* 背景样式 */
 .background {
     position: relative;
     background-color: #E7E1DA;
@@ -64,7 +60,6 @@ body, html {
     z-index: 1;
 }
 
-/* 导航栏样式 */
 .navbar,
 .content {
     position: relative;
@@ -113,7 +108,6 @@ body, html {
     font-weight: bold; 
 }
 
-/* LOGO 样式 */
 .sumerbloom {
     font-family: 'Genos-Light';
     font-size: clamp(10.8pt, 2.16vw, 18pt);
@@ -132,7 +126,6 @@ body, html {
     color: #A38A67;
 }
 
-/* 内容样式 */
 .content {
     text-align: center;
     display: flex;
@@ -155,7 +148,6 @@ body, html {
     transition: font-size 0.3s ease;
 }
 
-/* 按钮样式 */
 .shop-now {
     font-family: 'Genos-Light';
     margin-top: 20pt;
@@ -184,7 +176,6 @@ body, html {
     transform: scale(0.95);
 }
 
-/* 卡片容器 */
 .container {
     position: absolute;
     top: 50%;
@@ -197,12 +188,11 @@ body, html {
     width: 240px;
     height: 360px;
     z-index: 2;
-    outline: none; /* 去除 focus 样式 */
+    outline: none;
     cursor: pointer;
     transition: all 0.5s ease;
 }
 
-/* 卡片样式 */
 .card {
     position: absolute;
     width: 240px;
@@ -213,17 +203,15 @@ body, html {
     transform: translateY(calc(var(--i) * -10px)) rotate(0deg);
     transform-origin: center;
     transition: transform 0.5s ease, z-index 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
-    text-decoration: none; /* 去除链接下划线 */
+    text-decoration: none;
 }
 
-/* 默认堆叠样式：第一个个体 */
 .card:nth-child(1) { --card-color: #E2DBD1; z-index: 5; }
 .card:nth-child(2) { --card-color: #E2DBD1; z-index: 4; }
 .card:nth-child(3) { --card-color: #E2DBD1; z-index: 3; }
 .card:nth-child(4) { --card-color: #E2DBD1; z-index: 2; }
 .card:nth-child(5) { --card-color: #E2DBD1; z-index: 1; }
 
-/* 鼠标悬停时微微扇形展开：第二个个体 */
 .container:not(:focus):hover .card:nth-child(1) {
     transform: translateY(-10px) rotate(-3deg);
 }
@@ -240,9 +228,7 @@ body, html {
     transform: translateY(-50px) rotate(3deg);
 }
 
-/* 点击后完全展开：第三个个体 */
 .container:focus .card {
     transform: rotate(calc((var(--i) - 3) * 5deg)) translateX(calc((var(--i) - 3) * (260px + 20px))) translateY(0);
-    /* 每张卡片间距 = 卡片宽度 240px + 20pt 空档 */
-    z-index: calc(10 - var(--i)); /* 保持层次顺序 */
+    z-index: calc(10 - var(--i));
 }
