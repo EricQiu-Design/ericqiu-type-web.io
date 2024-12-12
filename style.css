@@ -139,14 +139,15 @@ body, html {
     align-items: center;
     height: calc(100vh - 70px);
     transform: translateY(-10px);
+    gap: 5px;
 }
 
 .headline {
     font-family: 'Debatiment_Normal';
-    font-size: clamp(30px, 5vw, 50px);
+    font-size: clamp(50px, 10vw, 80px);
     font-weight: normal;
-    line-height: 0.5;
-    margin: 10;
+    line-height: 0.2;
+    margin-bottom: 5px;
     color: #9C8F7D;
     text-transform: uppercase;
     letter-spacing: 3pt;
@@ -155,9 +156,9 @@ body, html {
 
 .shop-now {
     font-family: 'Genos-Light';
-    margin-top: 20pt;
+    margin-top: 5px;
     padding: 5px 20px;
-    font-size: clamp(9pt, 1.8vw, 15pt);
+    font-size: clamp(10pt, 2vw, 20pt);
     letter-spacing: 2pt;
     text-transform: capitalize;
     color: #fff;
@@ -211,7 +212,6 @@ body, html {
     text-decoration: none;
     overflow: hidden;
 }
-
 
 .card:nth-child(1) {
     z-index: 5;
