@@ -1,0 +1,188 @@
+@font-face {
+  font-family: "Debatiment";
+  src: url("../fonts/Debatiment_Normal.ttf") format("truetype");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #E7E1DA;
+  overflow: hidden;
+  user-select: none;
+  position: relative;
+}
+
+.background-logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: clamp(300px, 80vw, 1200px);
+  height: clamp(300px, 80vw, 1200px);
+  background-image: url('../images/SumerBloom_logo.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  pointer-events: none;
+  user-select: none;
+  z-index: 1;
+}
+
+.loader-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: clamp(1000px, 200vw, 3000px);
+  height: clamp(1000px, 200vw, 3000px);
+  z-index: 2;
+}
+
+.loader {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: linear-gradient(45deg, transparent, transparent 50%, #e5f403);
+  animation: animate 2s linear infinite;
+  opacity: 0.5;
+}
+
+@keyframes animate {
+  0% {
+    transform: rotate(0deg);
+    filter: hue-rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+    filter: hue-rotate(360deg);
+  }
+}
+
+.loader::before {
+  content: "";
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  width: 80%;
+  height: 80%;
+  background: #E7E1DA;
+  border-radius: 50%;
+}
+
+.loader::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, transparent, transparent 40%, #e5f403);
+  border-radius: 50%;
+  filter: blur(50px);
+}
+
+.loader-text-container {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 3;
+}
+
+.loader-text {
+  color: #ffffff;
+  font-family: "Debatiment", sans-serif;
+  font-size: clamp(3rem, 5vw, 6rem);
+  text-align: center;
+  letter-spacing: clamp(2px, 0.5vw, 6px);
+  margin-bottom: clamp(10px, 1vw, 20px);
+  z-index: 3;
+}
+
+.subtext {
+  color: #9C8F7D;
+  font-family: "Debatiment", sans-serif;
+  font-size: clamp(1rem, 2.5vw, 2rem);
+  text-align: center;
+  letter-spacing: clamp(1px, 0.4vw, 3px);
+  z-index: 3;
+}
+
+.btn {
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: clamp(8px, 1.5vw, 12px) clamp(32px, 3vw, 64px);
+  border-radius: 50px;
+  background-color: #fff;
+  color: #999;
+  font-family: "Debatiment", sans-serif;
+  font-size: clamp(1.2rem, 2vw, 2rem);
+  letter-spacing: clamp(3px, 0.8vw, 5px);
+  text-decoration: none;
+  text-align: center;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, color 0.25s ease;
+  overflow: hidden;
+  z-index: 3;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.btn:hover {
+  color: #9C8F7D;
+  text-shadow: 0 0 3px #9C8F7D, 0 0 25px #9C8F7D;
+}
+
+.btn:active {
+  transform: translateX(-50%) scale(1.05);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
+}
+
+.btn span {
+  position: relative;
+  z-index: 1;
+  font-family: "Debatiment", sans-serif;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: var(--y, 50%);
+  left: var(--x, 50%);
+  transform: translate(-50%, -50%);
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(#9C8F7D, transparent, transparent);
+  transition: opacity 0.25s ease;
+  opacity: 0;
+}
+
+.btn:hover::before {
+  opacity: 1;
+}
+
+.btn::after {
+  content: '';
+  position: absolute;
+  inset: 2px;
+  background-color: #fff;
+  border-radius: 30px;
+}
+

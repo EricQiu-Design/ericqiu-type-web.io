@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cards</title>
+    <link rel="stylesheet" href="css/cards.css">
+</head>
+<body>
+    <div class="background">
+        <div class="background-logo"></div>
+        <div class="back-button" onclick="navigateToIndex()">
+            <img src="images/BACK_white.svg" alt="Back Button" class="back-svg">
+        </div>
+
+        <div class="card-container">
+            <div class="card" style="--i: 1;">
+                <div class="card-face front"></div>
+                <div class="card-face back"></div>
+            </div>
+            <div class="card" style="--i: 2;">
+                <div class="card-face front"></div>
+                <div class="card-face back"></div>
+            </div>
+            <div class="card" style="--i: 3;">
+                <div class="card-face front"></div>
+                <div class="card-face back"></div>
+            </div>
+            <div class="card" style="--i: 4;">
+                <div class="card-face front"></div>
+                <div class="card-face back"></div>
+            </div>
+            <div class="card" style="--i: 5;">
+                <div class="card-face front"></div>
+                <div class="card-face back"></div>
+            </div>
+        </div>
+
+        <div class="button-container">
+            <div class="reset-button" onclick="resetCards()">
+                <img src="images/RELOAD.svg" alt="Reload" class="button-svg">
+            </div>
+            <div class="start-button" onclick="scatterCards()">
+                <img src="images/START.svg" alt="Start" class="button-svg">
+            </div>
+        </div>
+    </div>
+    <script src="js/cards.js"></script>
+</body>
+</html>

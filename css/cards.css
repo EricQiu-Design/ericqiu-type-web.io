@@ -1,0 +1,211 @@
+@font-face {
+    font-family: 'Debatiment_Normal';
+    src: url('../fonts/Debatiment_Normal.ttf');
+}
+
+body, html {
+    font-family: 'Debatiment_Normal', sans-serif;
+    background-color: #E7E1DA;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.back-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.back-svg {
+    width: 100%;
+    height: 100%;
+    transition: transform 0.3s ease, content 0.3s ease;
+}
+
+.back-svg {
+    content: url('../images/BACK_white.svg');
+}
+
+.back-button:hover .back-svg {
+    content: url('../images/BACK_hold.svg');
+}
+
+.back-button:active .back-svg {
+    content: url('../images/BACK_press.svg');
+}
+
+.background-logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: clamp(300px, 80vw, 1200px);
+    height: clamp(300px, 80vw, 1200px);
+    background-image: url('../images/SumerBloom_logo.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    pointer-events: none;
+    user-select: none;
+    z-index: 1;
+}
+
+.card-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    perspective: 1500px;
+    z-index: 2;
+}
+
+.card {
+    position: absolute;
+    width: 240px;
+    height: 360px;
+    transform-origin: center;
+    transform: translateY(calc(var(--i) * -10px)) rotateY(0deg);
+    transition: transform 0.8s cubic-bezier(0.25, 0.1, 0.25, 1), z-index 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transform-style: preserve-3d;
+}
+
+.card:hover {
+    box-shadow: 0 0 20px rgba(0, 123, 255, 0.5);
+}
+
+.card .card-face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.card .card-face.back {
+    background-color: #E2DBD1;
+    color: #333;
+    transform: rotateY(0deg);
+    z-index: 1;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.card:nth-child(1) .card-face.back {
+    background-image: url('../images/Card_img1.png');
+}
+
+.card:nth-child(2) .card-face.back {
+    background-image: url('../images/Card_img2.png');
+}
+
+.card:nth-child(3) .card-face.back {
+    background-image: url('../images/Card_img3.png');
+}
+
+.card:nth-child(4) .card-face.back {
+    background-image: url('../images/Card_img4.png');
+}
+
+.card:nth-child(5) .card-face.back {
+    background-image: url('../images/Card_img5.png');
+}
+
+.card .card-face.front {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #ffffff;
+    transform: rotateY(180deg);
+    z-index: 2;
+}
+
+.card:nth-child(1) .card-face.front {
+    background-image: url('../images/Card_Front_img1.png');
+}
+
+.card:nth-child(2) .card-face.front {
+    background-image: url('../images/Card_Front_img2.png');
+}
+
+.card:nth-child(3) .card-face.front {
+    background-image: url('../images/Card_Front_img3.png');
+}
+
+.card:nth-child(4) .card-face.front {
+    background-image: url('../images/Card_Front_img4.png');
+}
+
+.card:nth-child(5) .card-face.front {
+    background-image: url('../images/Card_Front_img5.png');
+}
+
+.card.flipped {
+    transform: rotateY(180deg) scale(1.5);
+}
+
+.card.focused {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotateY(0deg) scale(1.5);
+    z-index: 1000;
+    transition: transform 1s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.button-container {
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 20px;
+    z-index: 3;
+}
+
+.reset-button, .start-button {
+    width: 120px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background: none;
+    border: none;
+    padding: 0;
+    overflow: hidden;
+}
+
+.reset-button:hover, .start-button:hover {
+    transform: scale(1.1);
+}
+
+.button-svg {
+    max-width: 90%;
+    max-height: 90%;
+    height: auto;
+    display: block;
+}
